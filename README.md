@@ -19,8 +19,9 @@ Weather WEB
   styled-components
 
 ## Iniciar app
-
-    npm run start
+  npm install
+  npm run start (dev)
+  npm run build (prod)
 
 ## Documentacion de la API
 
