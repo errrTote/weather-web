@@ -2,7 +2,7 @@ import { request } from "./api";
 import { api } from "../config";
 
 export const getCurrentCity = async () => {
-  const endpoint = `${api}/city`;
+  const endpoint = `${api}/ipapi/city`;
   const response = await request(endpoint, {
     method: "GET",
     headers: {
@@ -14,7 +14,7 @@ export const getCurrentCity = async () => {
 
 export const getCurrentWeather = async (city = "") => {
 
-  const endpoint = `${api}/weather/?city=${city}`;
+  const endpoint = `${api}/weather/current?city=${city}`;
   const response = await request(endpoint, {
     method: "GET",
     headers: {
@@ -26,7 +26,7 @@ export const getCurrentWeather = async (city = "") => {
 
 export const getCurrentForecast = async (city) => {
 
-  const endpoint = `${api}/forecast?city=${city}`;
+  const endpoint = `${api}/weather/forecast?city=${city}`;
   const response = await request(endpoint, {
     method: "GET",
     headers: {

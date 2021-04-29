@@ -15,6 +15,7 @@ export const getCity = createAsyncThunk(
   "weather/getCity",
   async () => {
     const response = await getCurrentCity();
+    console.log(response.data);
     if (response.status === 200 && response.data.city) return response.data.city;
     throw new Error();
   }

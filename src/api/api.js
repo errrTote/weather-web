@@ -3,10 +3,11 @@ import axios from "axios";
 const responseHandler = (response) => {
   if (!response || !response.status) return { status: 500, message: "Error desconocido en la consulta" };
   const status = response.status;
-  const data = response.data ? response.data : null;
+  const { data } = response.data ? response.data : null;
+
   switch (status) {
     case 200:
-      return { status, data: response.data }
+      return { status, data }
     case 400:
       return { status, data: data ? data : "Datos incorrectos en la consulta" };
     case 401:
@@ -30,15 +31,15 @@ export const request = async (url, options) => {
 
   if (options.data) requestInfo["data"] = options.data;
 
-  if(options.credentials) requestInfo["Authorization"] = options.credentials;
-  
-  if(options.headers) requestInfo["headers"] = options.headers;
-  
+  if (options.credentials) requestInfo["Authorization"] = options.credentials;
+
+  if (options.headers) requestInfo["headers"] = options.headers;
+
   try {
     const axiosResponse = await axios(requestInfo);
     return responseHandler(axiosResponse);
   } catch (error) {
     return responseHandler(error.response);
   }
-  
+
 }
