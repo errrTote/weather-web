@@ -1,6 +1,6 @@
 # WebApp Weather Time
 
-Weather web
+Weather WEB
 
 <img src="https://avatars.githubusercontent.com/u/8603161?s=400&u=97c491cad28381f2806e6271bb1013adab38208f&v=4">
 
