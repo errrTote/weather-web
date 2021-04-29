@@ -21,6 +21,7 @@ Weather WEB
 ## Iniciar app
   npm install
   npm run start (dev)
+  npm run test (testing)
   npm run build (prod)
 
 ## Documentacion de la API
