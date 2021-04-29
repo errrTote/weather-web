@@ -1,58 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectStatus } from "./slices/weatherSlice";
+import { getCity, getWeather, selectCity } from "./slices/weatherSlice";
 
-function App() {
+// Components
+import { Header } from "./components/Header";
+import { Weather } from "./components/WeatherPanel";
+import { CitySelect } from "./components/CitySelect";
+import { DaysList } from "./components/DaysList";
+import { Spinner } from "./components/Spinner";
+import { Error } from "./components/Error";
+import { Container, ErrorContainer } from "./styles/appStyles";
+
+export const App = () => {
+  const city = useSelector(selectCity);
+
+  const dispatch = useDispatch();
+  const status = useSelector(selectStatus);
+
+  useEffect(() => {
+    if (city) {
+      dispatch(getWeather(city));
+    } else {
+      dispatch(getCity());
+    }
+  }, [dispatch, city]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      {status === "loading" && <Spinner main={true} />}
+      {status === "error" &&
+        <ErrorContainer>
+          <Error />
+        </ ErrorContainer>
+      }
+      {status === "idle" &&
+        <Container>
+          <Header />
+          <CitySelect />
+          <Weather />
+          <DaysList />
+        </ Container>
+      }
+
+    </>
   );
 }
 
-export default App;
