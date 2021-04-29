@@ -24,15 +24,15 @@ Weather WEB
 
 ## Documentacion de la API
 
-<a href="https://github.com/errrTote/weather-api">README</a>
+<a target="_blank" href="https://github.com/errrTote/weather-api">README</a>
 
 ## Documentacion del Front
 
-<a href="https://github.com/errrTote/weather-web">README</a>
+<a target="_blank" href="https://github.com/errrTote/weather-web">README</a>
 
 ## URL APP
 
-<a href="http://weather-teco-web.herokuapp.com/">http://weather-teco-web.herokuapp.com/</a>
+<a target="_blank" href="http://weather-teco-web.herokuapp.com/">http://weather-teco-web.herokuapp.com/</a>
 
 ## URL API
 
