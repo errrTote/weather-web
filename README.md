@@ -32,7 +32,7 @@ Weather WEB
 
 ## URL APP
 
-<a href="https://weather-web-gamma.vercel.app/">https://weather-web-gamma.vercel.app//</a>
+<a href="https://weather-web-gamma.vercel.app/">https://weather-web-gamma.vercel.app/</a>
 
 ## URL API
 
